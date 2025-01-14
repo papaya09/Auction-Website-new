@@ -10,14 +10,19 @@ const bcrypt = require('bcrypt');
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const path = require('path'); 
 
 // then express and cors
 app.use(express.json());
-app.use(cors({
-    origin: ["https://localhost:3000"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
-}));
+
+// app.use(cors({
+//     origin: ["https://localhost:3000"],
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     credentials: true
+// }));
+
+app.use(cors()); // DEV USE
+
 
 // this for the cookies
 app.use(cookieParser());
@@ -53,8 +58,8 @@ app.use('/images/', express.static('images'));
 
 // Create the ssl server
 const sslServer = https.createServer({
-    key: fs.readFileSync('/Users/yourname/key.pem'),
-    cert: fs.readFileSync('/Users/yourname/cert.pem')
+    key: fs.readFileSync(path.join(__dirname, 'certs', 'key.pem')),
+    cert: fs.readFileSync(path.join(__dirname, 'certs', 'cert.pem'))
 }, app);
 
 // listen on port 33123 creating the tables in models in the process

@@ -4,8 +4,10 @@ const { Item, Bid, Mail , Message, User, Contact, Category, UserData, UserTop } 
 const {validateTheToken} = require('../middlewares/Authent');
 const { Op } = require("sequelize");
 const fs = require('fs');
-const js2xml = require('js2xml').Js2Xml;
-const xml2js = require('xml2js');
+//const js2xml = require('js2xml').Js2Xml;
+//const xml2js = require('xml2js');
+const js2xmlparser = require('js2xmlparser');
+
 
 router.get('/', async (req, res) => {
 
@@ -1044,7 +1046,7 @@ router.get('/top/:id', async (req, res) => {
 // comment out so it doesn't run when the site is "online"
 router.post('/importxmls', async (req, res) => {
 
-    const parser = new xml2js.Parser();
+    const parser = new js2xmlparser.Parser();
     var path = require("path");
 
     // to do it in a bunch
