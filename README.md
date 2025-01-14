@@ -38,15 +38,13 @@ Auction Point is a website where users can buy and sell items. My aim with this 
 }
 ```
 
-1. For the back-end MySQL or a similar relational database is required as well as the installation of [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+2. setup your local mysql
 
-2. In the [config.json](api/config/config.json) file add your personal MySQL settings. 
+4. `npm install`
 
-3. To install express, cors and other necessary modules, in the [api](api/) folder run: `npm install`
+5. To connect sequelize to the database, run the command: `sequelize init`
 
-4. To connect sequelize to the database, run the command: `sequelize init`
-
-5. The transactions are encrypted through the SSL/TLS protocol. To create the certificate locally you can use `mkcert` and then add the path in:
+6. The transactions are encrypted through the SSL/TLS protocol. To create the certificate locally you can use `mkcert` and then add the path in:
 
 ```js
 const sslServer = https.createServer({
