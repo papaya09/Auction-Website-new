@@ -106,3 +106,5 @@ dist
 # Metadata, IDE-related
 .DS_Store
 .vscode
+
+certs/
