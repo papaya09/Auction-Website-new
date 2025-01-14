@@ -108,5 +108,5 @@ dist
 .vscode
 
 certs/
-config.json
-config/
+api/config/
+api/config/config.json
